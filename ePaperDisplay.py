@@ -32,8 +32,8 @@ try:
     Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(Limage)
 
-    draw.text((100,0), 'WELCOME', font = font96, fill = 0)
-    draw.text((100,100), 'BACK', font = font96, fill = 0)
+    draw.text((0,300), 'WELCOME', font = font96, fill = 0)
+    draw.text((110,500), 'BACK', font = font96, fill = 0)
     
     epd.display(epd.getbuffer(Limage))
     time.sleep(2)
