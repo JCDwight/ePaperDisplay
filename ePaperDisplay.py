@@ -29,13 +29,10 @@ try:
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
-    Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-    draw = ImageDraw.Draw(Limage)
-
-    draw.text((200,100), 'Hello World', font = font48, fill = 1)
+    draw.text((200,100), 'Hello World', font = font48, fill = 0)
 
     epd.display(epd.getbuffer(Limage))
-    time.sleep(2)
+    time.sleep(10)
 
     logging.info("Goto Sleep...")
     epd.sleep()
