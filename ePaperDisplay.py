@@ -25,8 +25,10 @@ try:
     epd.init()
     epd.Clear()
 
-    font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+    #font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
+    #font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+    font24 = ImageFont.truetype('/pic/Font.ttc', 24)
+    font18 = ImageFont.truetype('/pic/Font.ttc', 18)
 
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
