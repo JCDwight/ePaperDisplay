@@ -32,7 +32,7 @@ try:
     Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(Limage)
 
-    draw.text((200,100), 'Hello World', font = font48, fill = 0)
+    draw.text((200,100), 'Hello World', font = font48, fill = 1)
 
     epd.display(epd.getbuffer(Limage))
     time.sleep(2)
