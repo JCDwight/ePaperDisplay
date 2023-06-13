@@ -8,6 +8,7 @@ import datetime
 import os.path
 import logging
 import time
+from turtle import width
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 import platform as plat
@@ -65,7 +66,8 @@ def ePaperDemo():
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
-        draw.rectangle((1,1,479,275),outline = 0)
+        #draw.rectangle((1,1,479,275))
+        draw.rectangle((1,1,479,275),width = 10, outline= 0)
     
         epd.display(epd.getbuffer(Limage))
         time.sleep(2)
