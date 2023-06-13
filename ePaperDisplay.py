@@ -33,7 +33,7 @@ try:
     draw = ImageDraw.Draw(Limage)
 
     draw.text((10,250), 'WELCOME', font = font96, fill = 0)
-    draw.text((110,350), 'BACK', font = font96, fill = 0)
+    draw.text((100,375), 'BACK!', font = font96, fill = 0)
     
     epd.display(epd.getbuffer(Limage))
     time.sleep(2)
