@@ -56,7 +56,7 @@ def ePaperDemo():
     
         logging.info("init and Clear")
         epd.init()
-        epd.Clear()
+        #epd.Clear()
         font96 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96)
         font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
         font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
@@ -65,7 +65,7 @@ def ePaperDemo():
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
-        draw.rectangle((0,0,480,275),outline = 0)
+        draw.rectangle((1,1,479,275),outline = 0)
     
         epd.display(epd.getbuffer(Limage))
         time.sleep(2)
