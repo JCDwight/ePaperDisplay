@@ -4,8 +4,8 @@ import sys
 import os
 #picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
 #libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
-picdir = '/Python/ePaperDisplay/pic'
-libdir = '/Python/ePaperDisplay/lib'
+picdir = 'pic'
+libdir = 'lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
@@ -27,9 +27,9 @@ try:
 
     #font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     #font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-    font24 = ImageFont.truetype('/pic/Font.ttc', 24)
-    font18 = ImageFont.truetype('/pic/Font.ttc', 18)
-
+    font24 = ImageFont.truetype('pic/Font.ttc', 24)
+    font18 = ImageFont.truetype('pic/Font.ttc', 18)
+    font19 = ImageFont.truetype('pic/Font.ttc',15)
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
     Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
