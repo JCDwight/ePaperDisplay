@@ -65,7 +65,7 @@ def ePaperDemo():
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
-        draw.rectangle((0, 0, 480, 800/3), fill = 1)
+        draw.rectangle((0,0,480,275)|((0,0),(480,275)),outline = 1)
     
         epd.display(epd.getbuffer(Limage))
         time.sleep(2)
