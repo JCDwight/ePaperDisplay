@@ -65,8 +65,7 @@ def ePaperDemo():
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
-        draw.text((10,650), 'WELCOME', font = font96, fill = 0)
-        draw.text((100,375), 'BACK!', font = font96, fill = 0)
+        draw.rectangle((0, 0, 480, 800/3), fill = 0)
     
         epd.display(epd.getbuffer(Limage))
         time.sleep(2)
@@ -90,6 +89,8 @@ def main():
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
+    ePaperDemo()
+    exit()
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
@@ -111,7 +112,7 @@ def main():
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
         print('Getting the upcoming 10 events')
         events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
+                                              maxResults=3, singleEvents=True,
                                               orderBy='startTime').execute()
         events = events_result.get('items', [])
 
@@ -127,7 +128,7 @@ def main():
     except HttpError as error:
         print('An error occurred: %s' % error)
 
-    ePaperDemo()
+
 
 
 if __name__ == '__main__':
