@@ -40,10 +40,11 @@ libdir = 'lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-print('got to check platform')
+
 
 if (CheckPlatform() == 1):
     from waveshare_epd import epd7in5_V2
+    print('Imported Waveshare')
 elif (CheckPlatform() == 2):
     pass
 
@@ -125,6 +126,8 @@ def main():
 
     except HttpError as error:
         print('An error occurred: %s' % error)
+
+    ePaperDemo()
 
 
 if __name__ == '__main__':
