@@ -4,7 +4,6 @@ from __future__ import print_function
 
 import sys
 import os
-import datetime
 from datetime import datetime
 import os.path
 import logging
@@ -85,7 +84,7 @@ def ePaperDemo():
             service = build('calendar', 'v3', credentials=creds)
 
             # Call the Calendar API
-            now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
+            now = datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
             print('Getting the upcoming 3 events')
             events_result = service.events().list(calendarId='primary', timeMin=now,
                                                   maxResults=3, singleEvents=True,
