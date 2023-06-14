@@ -108,7 +108,9 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        draw.text((2, 20), str(events[0]['summary']), font = font24, fill = 0)
+        start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
+        formatted = start.strftime("%a, (%b, %d) - " + str(events[0]['summary']))
+        draw.text((2, 20), formatted, font = font48, fill = 0)
         draw.rectangle((0,275,480,550),width = 5, outline= 0)
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
     
