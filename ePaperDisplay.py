@@ -108,7 +108,7 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        draw.text((0,0),str(events[0,'summary']))
+        draw.text((0,0),str(events[0]['summary']))
         draw.rectangle((0,275,480,550),width = 5, outline= 0)
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
     
