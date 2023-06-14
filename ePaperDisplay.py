@@ -56,7 +56,7 @@ def ePaperDemo():
         epd = epd7in5_V2.EPD()
     
         logging.info("init and Clear")
-        epd.init()
+        #epd.init()
         #epd.Clear()
         font96 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96)
         font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
