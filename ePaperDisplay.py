@@ -69,7 +69,7 @@ def ePaperDemo():
         font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
-        Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
+        Limage = Image.new('1', (epd.height, epd.width), 0)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
         if os.path.exists('token.json'):
@@ -113,28 +113,28 @@ def ePaperDemo():
 
 
         #draw.rectangle((1,1,479,275))
-        draw.rectangle((0,0,480,275),width = 5, outline= 0)
+        draw.rectangle((0,0,480,275),width = 5, outline= 1)
         start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
         date = datetime.strptime(start, "%Y-%m-%d")
         formatted = date.strftime("%a, (%b, %d) - ")
         formatted2 = str(events[0]['summary'])
-        draw.text((20, 20), formatted, font = font48, fill = 0)
-        draw.text((100, 120), formatted2, font = font48, fill = 0)
-        draw.rectangle((0,275,480,550),width = 5, outline= 0)        
+        draw.text((20, 20), formatted, font = font48, fill = 1)
+        draw.text((100, 120), formatted2, font = font48, fill = 1)
+        draw.rectangle((0,275,480,550),width = 5, outline= 1)        
         start = events[1]['start'].get('dateTime', events[1]['start'].get('date'))
         date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
         formatted = date.strftime("%a, (%b, %d) - ")
         formatted2 = str(events[1]['summary'])
-        draw.text((20, 295), formatted, font = font48, fill = 0)
-        draw.text((100, 395), formatted2, font = font48, fill = 0)
-        draw.rectangle((0,275,480,550),width = 5, outline= 0)
+        draw.text((20, 295), formatted, font = font48, fill = 1)
+        draw.text((100, 395), formatted2, font = font48, fill = 1)
+        draw.rectangle((0,275,480,550),width = 5, outline= 1)
         start = events[2]['start'].get('dateTime', events[2]['start'].get('date'))
         date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
         formatted = date.strftime("%a, (%b, %d) - ")
         formatted2 = str(events[2]['summary'])
-        draw.text((20, 570), formatted, font = font48, fill = 0)
-        draw.text((100, 670), formatted2, font = font48, fill = 0)       
-        draw.rectangle((0,550,480,800),width = 5, outline= 0)
+        draw.text((20, 570), formatted, font = font48, fill = 1)
+        draw.text((100, 670), formatted2, font = font48, fill = 1)       
+        draw.rectangle((0,550,480,800),width = 5, outline= 1)
     
         epd.display(epd.getbuffer(Limage))
         time.sleep(2)
