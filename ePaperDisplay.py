@@ -69,7 +69,7 @@ def ePaperDemo():
         font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
-        Limage = Image.new('1', (epd.height, epd.width), 0)  # 255: clear the frame
+        Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
 
         if os.path.exists('token.json'):
