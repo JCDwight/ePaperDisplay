@@ -114,7 +114,7 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
+        start = events[1]['start'].get('dateTime', events[0]['start'].get('date'))
         print(start)
         date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
         print(date)
