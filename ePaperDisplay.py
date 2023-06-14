@@ -104,7 +104,7 @@ def ePaperDemo():
             print("")
             # Prints the start and name of the next 10 events
             for event in events:
-                start = event['start'].get('dateTime', event['start'].get('date'))
+                start = event['start'].get('dateTime')
                 print (event)
                 print(start, event['summary'])
 
