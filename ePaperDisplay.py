@@ -104,7 +104,7 @@ def ePaperDemo():
             print("")
             # Prints the start and name of the next 10 events
             for event in events:
-                start = event['start'].get('dateTime')
+                start = event['start'].get('dateTime', event['start'].get('date'))
                 print (event)
                 print(start, event['summary'])
 
@@ -115,7 +115,8 @@ def ePaperDemo():
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
         start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
-        date = datetime.strptime(start, "%Y-%m-%dT%H:%M")
+        date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
+        print(date)
         formatted = date.strftime("%a, (%b, %d) - " + str(events[0]['summary']))
 
 
