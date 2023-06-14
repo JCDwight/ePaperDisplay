@@ -91,10 +91,11 @@ def ePaperDemo():
                                                   orderBy='startTime').execute()
             events = events_result.get('items', [])
             print(events)
+            print(type(events))
             if not events:
                 print('No upcoming events found.')
                 return
-
+            print("")
             # Prints the start and name of the next 10 events
             for event in events:
                 start = event['start'].get('dateTime', event['start'].get('date'))
