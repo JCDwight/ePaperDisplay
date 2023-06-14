@@ -63,7 +63,7 @@ def ePaperDemo():
     
         logging.info("init and Clear")
         epd.init()
-        #epd.Clear()
+        epd.Clear()
         font96 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96)
         font48 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 48)
         font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
@@ -124,7 +124,7 @@ def ePaperDemo():
 
 
         draw.text((20, 20), formatted, font = font48, fill = 0)
-        draw.text((150, 80), formatted2, font = font48, fill = 0)
+        draw.text((100, 120), formatted2, font = font48, fill = 0)
         draw.rectangle((0,275,480,550),width = 5, outline= 0)
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
     
