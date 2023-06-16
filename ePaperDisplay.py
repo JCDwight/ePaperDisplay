@@ -139,7 +139,7 @@ def ePaperDemo():
         draw.text((100, 670), formatted2, font = font48, fill = 0)       
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
     
-        epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
+        epd.display(epd.getbuffer(Rimage),epd.getbuffer(Limage))
         time.sleep(2)
 
         logging.info("Goto Sleep...")
