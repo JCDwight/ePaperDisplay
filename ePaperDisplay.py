@@ -55,6 +55,18 @@ if (CheckPlatform() == 1):
 elif (CheckPlatform() == 2):
     pass
 
+def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font):
+    draw.rectangle((x1,y1,x2,y2),width = 3, outline= 0)
+    start = events[event]['start'].get('dateTime', events[event]['start'].get('date'))
+    combiner = ""
+    for i in range(9):
+        combiner = combiner + start[i]
+    date = datetime.strptime(combiner, "%Y-%m-%d")
+    formatted = date.strftime("%a, (%b, %d) - ")
+    formatted2 = str(events[event]['summary'])
+    draw.text((20, 20), formatted, font = font, fill = 0)
+    draw.text((100, 120), formatted2, font = font, fill = 0)
+
 def ePaperDemo():
 
     try:
@@ -116,18 +128,10 @@ def ePaperDemo():
 
 
         #draw.rectangle((1,1,479,275))
-        draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
-        combiner = ""
-        for i in range(9):
-            combiner = combiner + start[i]
-        date = datetime.strptime(combiner, "%Y-%m-%d")
-        formatted = date.strftime("%a, (%b, %d) - ")
-        formatted2 = str(events[0]['summary'])
+
+        DrawCalendarPanel(draw,0,events,0,0,480,275,font48)
         #formatted = 'Test 1'
         #formatted2 = 'Test 2'
-        draw.text((20, 20), formatted, font = font48, fill = 0)
-        draw.text((100, 120), formatted2, font = font48, fill = 0)
         draw.rectangle((0,275,480,550),width = 5, outline= 0)        
         #start = events[1]['start'].get('dateTime', events[1]['start'].get('date'))
         #date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
