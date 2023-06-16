@@ -59,7 +59,7 @@ def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font):
     draw.rectangle((x1,y1,x2,y2),width = 3, outline= 0)
     start = events[event]['start'].get('dateTime', events[event]['start'].get('date'))
     combiner = ""
-    for i in range(9):
+    for i in range(10):
         combiner = combiner + start[i]
     date = datetime.strptime(combiner, "%Y-%m-%d")
     formatted = date.strftime("%a, (%b, %d) - ")
