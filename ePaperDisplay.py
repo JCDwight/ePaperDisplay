@@ -132,9 +132,9 @@ def ePaperDemo():
         #formatted2 = str(events[1]['summary'])
         formatted = 'Test 3'
         formatted2 = 'Test 4'
-        draw.text((20, 295), formatted, font = font48, fill = 0)
-        draw.text((100, 395), formatted2, font = font48, fill = 0)
-        draw.rectangle((0,275,480,550),width = 5, outline= 0)
+        draw2.text((20, 295), formatted, font = font48, fill = 0)
+        draw2.text((100, 395), formatted2, font = font48, fill = 0)
+        draw2.rectangle((0,275,480,550),width = 5, outline= 0)
         #start = events[2]['start'].get('dateTime', events[2]['start'].get('date'))
         #date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
         #formatted = date.strftime("%a, (%b, %d) - ")
