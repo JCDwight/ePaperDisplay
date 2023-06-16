@@ -71,7 +71,9 @@ def ePaperDemo():
 
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         Rimage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-        draw = ImageDraw.Draw(Limage,Rimage)
+        draw = ImageDraw.Draw(Limage)
+        draw = ImageDraw.Draw(Rimage)
+
 
         if os.path.exists('token.json'):
             creds = Credentials.from_authorized_user_file('token.json', SCOPES)
