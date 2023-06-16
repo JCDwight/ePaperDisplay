@@ -72,7 +72,7 @@ def ePaperDemo():
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         Rimage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(Limage)
-        draw = ImageDraw.Draw(Rimage)
+        draw2 = ImageDraw.Draw(Rimage)
 
 
         if os.path.exists('token.json'):
@@ -145,7 +145,7 @@ def ePaperDemo():
         draw.text((100, 670), formatted2, font = font48, fill = 0)       
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
     
-        epd.display(epd.getbuffer(Rimage),epd.getbuffer(Limage))
+        epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
         time.sleep(2)
 
         logging.info("Goto Sleep...")
