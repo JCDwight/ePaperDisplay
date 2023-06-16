@@ -86,45 +86,45 @@ def ePaperDemo():
         draw = ImageDraw.Draw(Limage)
         draw2 = ImageDraw.Draw(Rimage)
 
+        if (1 == 2):
+            if os.path.exists('token.json'):
+                creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+            # If there are no (valid) credentials available, let the user log in.
+            if not creds or not creds.valid:
+                if creds and creds.expired and creds.refresh_token:
+                    creds.refresh(Request())
+                else:
+                    flow = InstalledAppFlow.from_client_secrets_file(
+                        'credentials.json', SCOPES)
+                    creds = flow.run_local_server(port=0)
+                # Save the credentials for the next run
+                with open('token.json', 'w') as token:
+                    token.write(creds.to_json())
 
-        if os.path.exists('token.json'):
-            creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-        # If there are no (valid) credentials available, let the user log in.
-        if not creds or not creds.valid:
-            if creds and creds.expired and creds.refresh_token:
-                creds.refresh(Request())
-            else:
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', SCOPES)
-                creds = flow.run_local_server(port=0)
-            # Save the credentials for the next run
-            with open('token.json', 'w') as token:
-                token.write(creds.to_json())
+            try:
+                service = build('calendar', 'v3', credentials=creds)
 
-        try:
-            service = build('calendar', 'v3', credentials=creds)
+                # Call the Calendar API
+                now = datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
+                print('Getting the upcoming 3 events')
+                events_result = service.events().list(calendarId='primary', timeMin=now,
+                                                      maxResults=3, singleEvents=True,
+                                                      orderBy='startTime').execute()
+                events = events_result.get('items', [])
+                print(events)
+                print(type(events))
+                if not events:
+                    print('No upcoming events found.')
+                    return
+                print("")
+                # Prints the start and name of the next 10 events
+                for event in events:
+                    start = event['start'].get('dateTime', event['start'].get('date'))
+                    print (event)
+                    print(start, event['summary'])
 
-            # Call the Calendar API
-            now = datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-            print('Getting the upcoming 3 events')
-            events_result = service.events().list(calendarId='primary', timeMin=now,
-                                                  maxResults=3, singleEvents=True,
-                                                  orderBy='startTime').execute()
-            events = events_result.get('items', [])
-            print(events)
-            print(type(events))
-            if not events:
-                print('No upcoming events found.')
-                return
-            print("")
-            # Prints the start and name of the next 10 events
-            for event in events:
-                start = event['start'].get('dateTime', event['start'].get('date'))
-                print (event)
-                print(start, event['summary'])
-
-        except HttpError as error:
-            print('An error occurred: %s' % error)
+            except HttpError as error:
+                print('An error occurred: %s' % error)
 
 
         #draw.rectangle((1,1,479,275))
@@ -132,8 +132,8 @@ def ePaperDemo():
         #DrawCalendarPanel(draw,0,events,0,0,480,275,font48,2)
         #DrawCalendarPanel(draw2,1,events,0,275,480,550,font48,3)
         #DrawCalendarPanel(draw,2,events,0,550,480,800,font48,4)
-        draw.text((0, 100), "WELCOME", font = font96, fill = 0)
-        draw.text((0, 300), "BACK", font = font96, fill = 0)
+        draw.text((20, 100), "WELCOME", font = font96, fill = 0)
+        draw.text((150, 500), "BACK", font = font96, fill = 0)
         epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
         time.sleep(2)
 
