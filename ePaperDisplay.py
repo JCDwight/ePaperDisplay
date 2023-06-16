@@ -117,27 +117,30 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
-        try:
-            date = datetime.strptime(start, "%Y-%m-%d")
-        except:
-            date = datetime.date()
-        formatted = date.strftime("%a, (%b, %d) - ")
-        formatted2 = str(events[0]['summary'])
+        #start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
+        #date = datetime.strptime(start, "%Y-%m-%d")
+        #formatted = date.strftime("%a, (%b, %d) - ")
+        #formatted2 = str(events[0]['summary'])
+        formatted = 'Test 1'
+        formatted2 = 'Test 2'
         draw.text((20, 20), formatted, font = font48, fill = 0)
         draw.text((100, 120), formatted2, font = font48, fill = 0)
         draw.rectangle((0,275,480,550),width = 5, outline= 0)        
-        start = events[1]['start'].get('dateTime', events[1]['start'].get('date'))
-        date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
-        formatted = date.strftime("%a, (%b, %d) - ")
-        formatted2 = str(events[1]['summary'])
+        #start = events[1]['start'].get('dateTime', events[1]['start'].get('date'))
+        #date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
+        #formatted = date.strftime("%a, (%b, %d) - ")
+        #formatted2 = str(events[1]['summary'])
+        formatted = 'Test 3'
+        formatted2 = 'Test 4'
         draw.text((20, 295), formatted, font = font48, fill = 0)
         draw.text((100, 395), formatted2, font = font48, fill = 0)
         draw.rectangle((0,275,480,550),width = 5, outline= 0)
-        start = events[2]['start'].get('dateTime', events[2]['start'].get('date'))
-        date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
-        formatted = date.strftime("%a, (%b, %d) - ")
-        formatted2 = str(events[2]['summary'])
+        #start = events[2]['start'].get('dateTime', events[2]['start'].get('date'))
+        #date = datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
+        #formatted = date.strftime("%a, (%b, %d) - ")
+        #formatted2 = str(events[2]['summary'])
+        formatted = 'Test 5'
+        formatted2 = 'Test 6'
         draw.text((20, 570), formatted, font = font48, fill = 0)
         draw.text((100, 670), formatted2, font = font48, fill = 0)       
         draw.rectangle((0,550,480,800),width = 5, outline= 0)
