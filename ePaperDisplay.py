@@ -55,8 +55,8 @@ if (CheckPlatform() == 1):
 elif (CheckPlatform() == 2):
     pass
 
-def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font):
-    draw.rectangle((x1,y1,x2,y2),width = 3, outline= 0)
+def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font,widthp):
+    draw.rectangle((x1,y1,x2,y2),width = widthp, outline= 0)
     start = events[event]['start'].get('dateTime', events[event]['start'].get('date'))
     combiner = ""
     for i in range(10):
@@ -129,9 +129,9 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
 
-        DrawCalendarPanel(draw,0,events,0,0,480,275,font48)
-        DrawCalendarPanel(draw2,1,events,0,275,480,550,font48)
-        DrawCalendarPanel(draw,2,events,0,550,480,800,font48)
+        DrawCalendarPanel(draw,0,events,0,0,480,275,font48,30)
+        DrawCalendarPanel(draw2,1,events,0,275,480,550,font48,30)
+        DrawCalendarPanel(draw,2,events,0,550,480,800,font48,30)
 
         epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
         time.sleep(2)
