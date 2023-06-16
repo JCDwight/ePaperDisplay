@@ -67,6 +67,11 @@ def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font,widthp):
     draw.text((x1 + 20, y1 + 20), formatted, font = font, fill = 0)
     draw.text((x1 + 100, y1 + 120), formatted2, font = font, fill = 0)
 
+def DrawWelcomeBack(draw):
+        draw.text((20, 200), "WELCOME", font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96), fill = 0)
+        draw.text((120, 500), "BACK", font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96), fill = 0)
+
+
 def ePaperDemo():
 
     try:
@@ -132,8 +137,7 @@ def ePaperDemo():
         #DrawCalendarPanel(draw,0,events,0,0,480,275,font48,2)
         #DrawCalendarPanel(draw2,1,events,0,275,480,550,font48,3)
         #DrawCalendarPanel(draw,2,events,0,550,480,800,font48,4)
-        draw2.text((20, 200), "WELCOME", font = font96, fill = 0)
-        draw2.text((120, 500), "BACK", font = font96, fill = 0)
+        DrawWelcomeBack(draw2)
         epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
         time.sleep(2)
 
