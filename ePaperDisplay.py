@@ -132,8 +132,8 @@ def ePaperDemo():
         #DrawCalendarPanel(draw,0,events,0,0,480,275,font48,2)
         #DrawCalendarPanel(draw2,1,events,0,275,480,550,font48,3)
         #DrawCalendarPanel(draw,2,events,0,550,480,800,font48,4)
-        draw.text((20, 200), "WELCOME", font = font96, fill = 0)
-        draw.text((120, 500), "BACK", font = font96, fill = 0)
+        draw2.text((20, 200), "WELCOME", font = font96, fill = 0)
+        draw2.text((120, 500), "BACK", font = font96, fill = 0)
         epd.display(epd.getbuffer(Limage),epd.getbuffer(Rimage))
         time.sleep(2)
 
