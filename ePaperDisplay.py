@@ -117,10 +117,11 @@ def ePaperDemo():
 
         #draw.rectangle((1,1,479,275))
         draw.rectangle((0,0,480,275),width = 5, outline= 0)
-        start = events[0]['start'].get('date')
-        if (start == None):
-            start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
-        date = datetime.strptime(start, "%Y-%m-%d")
+        start = events[0]['start'].get('dateTime', events[0]['start'].get('date'))
+        combiner = ""
+        for i in range(9):
+            combiner = combiner + start[i]
+        date = datetime.strptime(combiner, "%Y-%m-%d")
         formatted = date.strftime("%a, (%b, %d) - ")
         formatted2 = str(events[0]['summary'])
         #formatted = 'Test 1'
