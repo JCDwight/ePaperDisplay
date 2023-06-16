@@ -70,7 +70,8 @@ def ePaperDemo():
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
         Limage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-        draw = ImageDraw.Draw(Limage)
+        Rimage = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
+        draw = ImageDraw.Draw(Limage,Rimage)
 
         if os.path.exists('token.json'):
             creds = Credentials.from_authorized_user_file('token.json', SCOPES)
