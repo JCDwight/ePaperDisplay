@@ -64,8 +64,8 @@ def DrawCalendarPanel(draw,event,events,x1,y1,x2,y2,font):
     date = datetime.strptime(combiner, "%Y-%m-%d")
     formatted = date.strftime("%a, (%b, %d) - ")
     formatted2 = str(events[event]['summary'])
-    draw.text((20, 20), formatted, font = font, fill = 0)
-    draw.text((100, 120), formatted2, font = font, fill = 0)
+    draw.text((x1 + 20, y1 + 20), formatted, font = font, fill = 0)
+    draw.text((x1 + 100, y1 + 120), formatted2, font = font, fill = 0)
 
 def ePaperDemo():
 
