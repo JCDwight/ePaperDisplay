@@ -50,7 +50,7 @@ def get_ordinal(n):
 
 
 if (CheckPlatform() == 1):
-    from waveshare_epd import epd7in5_V2
+    from waveshare_epd import epd7in5b_V2
     print('Imported Waveshare')
 elif (CheckPlatform() == 2):
     pass
@@ -58,7 +58,7 @@ elif (CheckPlatform() == 2):
 def ePaperDemo():
 
     try:
-        logging.info("epd7in5_V2 Demo")
+        logging.info("epd7in5b_V2 Demo")
         epd = epd7in5_V2.EPD()
     
         logging.info("init and Clear")
