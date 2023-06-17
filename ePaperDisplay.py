@@ -130,7 +130,8 @@ def ePaperDemo():
 
             except HttpError as error:
                 print('An error occurred: %s' % error)
-
+            except Exception as error:
+                print("Exception")
 
         #draw.rectangle((1,1,479,275))
 
