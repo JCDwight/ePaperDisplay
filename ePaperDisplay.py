@@ -181,6 +181,9 @@ def main():
     # created automatically when the authorization flow completes for the first
     # time.
     ePaperDemo()
+    while True:
+        client()
+        time.sleep(1)
     exit()
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
