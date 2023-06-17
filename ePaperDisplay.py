@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 from __future__ import print_function
 
+import socket
 import sys
 import os
 from datetime import datetime
@@ -151,6 +152,25 @@ def ePaperDemo():
         logging.info("ctrl + c:")
         epd7in5b_V2.epdconfig.module_exit()
         exit()
+
+
+
+
+def client():
+  host = socket.gethostname()  # get local machine name
+  port = 8080  # Make sure it's within the > 1024 $$ <65535 range
+  
+  s = socket.socket()
+  s.connect((host, port))
+  
+  message = input('-> ')
+  while message != 'q':
+    s.send(message.encode('utf-8'))
+    data = s.recv(1024).decode('utf-8')
+    print('Received from server: ' + data)
+    message = input('==> ')
+  s.close()
+
 
 def main():
     """Shows basic usage of the Google Calendar API.
