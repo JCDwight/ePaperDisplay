@@ -1,7 +1,6 @@
 ﻿#!/usr/bin/python
 # -*- coding:utf-8 -*-
 from __future__ import print_function
-
 import socket
 import sys
 import os
@@ -31,11 +30,7 @@ def CheckPlatform():
     else:
         return 3
 
-
 logging.basicConfig(level=logging.DEBUG)
-
-
-
 
 picdir = 'pic'
 libdir = 'lib'
@@ -48,7 +43,6 @@ def get_ordinal(n):
         return str(n) + "th"
     else:
         return str(n) + {1: "st", 2: "nd", 3: "rd"}[n % 10]
-
 
 if (CheckPlatform() == 1):
     from waveshare_epd import epd7in5b_V2
@@ -72,9 +66,7 @@ def DrawWelcomeBack(draw):
         draw.text((20, 200), "WELCOME", font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96), fill = 0)
         draw.text((120, 500), "BACK", font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 96), fill = 0)
 
-
 def ePaperDemo():
-
     try:
         logging.info("epd7in5b_V2 Demo")
         epd = epd7in5b_V2.EPD()
@@ -153,23 +145,21 @@ def ePaperDemo():
         epd7in5b_V2.epdconfig.module_exit()
         exit()
 
+def send_message(message, host='192.168.212.108', port=8080):
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((host, port))
 
+    print(f"Sending message: {message}")
+    client_socket.send(message.encode('utf-8'))
+    
+    response = client_socket.recv(1024)
+    print(f"Response from server: {response.decode('utf-8')}")
+    
+    client_socket.close()
 
+# send a message
+#send_message("Hello Server!")
 
-def client():
-  host = socket.gethostname()  # get local machine name
-  port = 8080  # Make sure it's within the > 1024 $$ <65535 range
-  
-  s = socket.socket()
-  s.connect((host, port))
-  
-  message = input('-> ')
-  while message != 'q':
-    s.send(message.encode('utf-8'))
-    data = s.recv(1024).decode('utf-8')
-    print('Received from server: ' + data)
-    message = input('==> ')
-  s.close()
 
 
 def main():
@@ -182,7 +172,7 @@ def main():
     # time.
     #ePaperDemo()
     while True:
-        client()
+        send_message()
         time.sleep(1)
     exit()
     if os.path.exists('token.json'):
