@@ -91,7 +91,7 @@ def ePaperDemo():
         draw = ImageDraw.Draw(Limage)
         draw2 = ImageDraw.Draw(Rimage)
 
-        if (1 == 2):
+        if (1 == 1):
             if os.path.exists('token.json'):
                 creds = Credentials.from_authorized_user_file('token.json', SCOPES)
             # If there are no (valid) credentials available, let the user log in.
@@ -130,8 +130,7 @@ def ePaperDemo():
 
             except HttpError as error:
                 print('An error occurred: %s' % error)
-            except Exception as error:
-                print("Exception")
+
 
         #draw.rectangle((1,1,479,275))
 
