@@ -172,7 +172,10 @@ def main():
     # time.
     #ePaperDemo()
     while True:
-        send_message("Chuck testa")
+        try:
+            send_message("Chuck testa")
+        except:
+            print("Not chuck")
         time.sleep(1)
     exit()
     if os.path.exists('token.json'):
